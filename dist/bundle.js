@@ -22542,8 +22542,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //路由入口
 var getRouter = function getRouter() {
     return _react2.default.createElement(
-        _reactRouterDom.BrowserRouter,
-        { history: _reactRouterDom.browserHistory },
+        _reactRouterDom.HashRouter,
+        null,
         _react2.default.createElement(
             'div',
             null,
@@ -25771,7 +25771,18 @@ var Page1 = function (_Component) {
             return _react2.default.createElement(
                 'div',
                 null,
-                'this is Page1!! '
+                'this is Page1!!',
+                _react2.default.createElement(
+                    'div',
+                    null,
+                    'url\uFF1A',
+                    this.props.match.url
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    JSON.stringify(this.props.match)
+                )
             );
         }
     }]);

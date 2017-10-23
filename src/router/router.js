@@ -1,7 +1,7 @@
 //路由入口
 import React from 'react';
 // BromserRouter作为Router的名字引入 （as） 
-import {BrowserRouter as Router, HashRouter, Route, Switch, Link, hashHistory, browserHistory} from 'react-router-dom';
+import {BrowserRouter, HashRouter as Router, Route, Switch, Link, hashHistory, browserHistory} from 'react-router-dom';
 // import {Router, Route ,Link, hashHistory, browserHistory} from 'react-router';
 
 import Home from '../page/Home';
@@ -13,7 +13,7 @@ import Page1 from '../page/Page1';
 
 const getRouter = ()=> 
    (
-        <Router history={browserHistory}>
+        <Router>
             <div>
                 <ul>
                     <li> <Link to="/">Home页面</Link></li>
@@ -35,4 +35,6 @@ export default getRouter;
 /*
     exact: bool
     如果为 true，path 为 '/one' 的路由将不能匹配 '/one/two'，反之，亦然。
+
+    http://www.cnblogs.com/YZH-chengdu/p/6855237.html
 */
