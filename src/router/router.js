@@ -1,7 +1,7 @@
 //路由入口
 import React from 'react';
 // BromserRouter作为Router的名字引入 （as） 
-import {BrowserRouter, HashRouter as Router, Route, Switch, Link, hashHistory, browserHistory} from 'react-router-dom';
+import {BrowserRouter as Router, HashRouter, Route, Switch, Link, hashHistory, browserHistory} from 'react-router-dom';
 // import {Router, Route ,Link, hashHistory, browserHistory} from 'react-router';
 
 import Home from '../page/Home';

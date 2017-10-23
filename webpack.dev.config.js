@@ -10,6 +10,18 @@ module.exports = {
         // 输出到dist文件夹
         filename: 'bundle.js'
     },
+    devServer:{   //webpack-dev-server配置
+        contentBase: path.join(__dirname, './dist'), //服务器URL的根目录
+        port: '8088',
+        host: '0.0.0.0',  //支持ip来访问页面，否则只能通过localhost:8088来访问
+        historyApiFallback: true,  //所有404页面能跳转到index.html
+        proxy: {
+            '/api': {
+                target: 'https://www.baidu.com',
+                pathRewrite: {'^/api' : ''},  //重写HTTP请求，其主要作用就是移除URL前面的/api部分               
+            }
+        }
+    },
     module: {
         rules: [{
             test: /\.js$/,
