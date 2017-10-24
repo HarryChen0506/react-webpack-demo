@@ -37,4 +37,6 @@ export default getRouter;
     如果为 true，path 为 '/one' 的路由将不能匹配 '/one/two'，反之，亦然。
 
     http://www.cnblogs.com/YZH-chengdu/p/6855237.html
+    redux 中文文档
+    http://cn.redux.js.org/index.html
 */
