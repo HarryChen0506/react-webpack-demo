@@ -1,10 +1,14 @@
 //webpack dev环境配置
 
 const path = require('path');
+const webpack = require('webpack')
 
 module.exports = {
     //入口
-    entry: path.join(__dirname,'src/index.js'),
+    entry:[
+        'react-hot-loader/patch',
+        path.join(__dirname,'src/index.js')
+    ], 
     output: {
         path: path.join(__dirname, './dist'),
         // 输出到dist文件夹
@@ -20,7 +24,8 @@ module.exports = {
                 target: 'https://www.baidu.com',
                 pathRewrite: {'^/api' : ''},  //重写HTTP请求，其主要作用就是移除URL前面的/api部分               
             }
-        }
+        },
+        hot: true
     },
     module: {
         rules: [{
@@ -28,5 +33,8 @@ module.exports = {
             use: ['babel-loader'],  //cacheDirectory缓存编译结果加速
             include: path.join(__dirname, './src')
         }]
-    }
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin()
+    ]
 }
