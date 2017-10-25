@@ -7,6 +7,7 @@ import {BrowserRouter as Router, HashRouter, Route, Switch, Link, hashHistory, b
 import Home from '../page/Home';
 import Page1 from '../page/Page1';
 import Counter from '../page/Counter';
+import User from '../page/User';
 
 // console.log('page1',Page1)
 
@@ -20,13 +21,13 @@ const getRouter = ()=>
                     <li> <Link to="/">Home页面</Link></li>
                     <li> <Link to="/page1">Page1页面</Link></li>
                     <li> <Link to="/counter">Counter页面</Link></li>
+                    <li> <Link to="/user">User页面</Link></li>
                 </ul> 
                 <Switch>
-                
                     <Route exact  path="/" component={Home} ></Route>
                     <Route  path="/page1" component={Page1} ></Route>
                     <Route  path="/counter" component={Counter} ></Route>
-                                      
+                    <Route  path="/user" component={User} ></Route>
                 </Switch>                   
             </div>        
         </Router>
