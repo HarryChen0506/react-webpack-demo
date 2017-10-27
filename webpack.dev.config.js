@@ -6,10 +6,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     //入口
-    entry:[
-        'react-hot-loader/patch',
-        path.join(__dirname,'src/index.js')
-    ], 
+    entry:{
+        app: [ 'react-hot-loader/patch',
+            path.join(__dirname,'src/index.js')
+        ],
+        vendor: [
+            'react', 
+            'react-router-dom', 
+            'redux', 
+            'react-dom', 
+            'react-redux',
+            'redux-thunk'
+        ]
+    }, 
     output: {
         path: path.join(__dirname, './dist'),
         // 输出到dist文件夹
@@ -58,6 +67,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.join(__dirname, 'src/index.tpl.html')
+        }),
+        new webpack.optimize.CommonsChunkPlugin({   //引用资源单独打包
+            name: 'vendor'
         })
     ]
 }
