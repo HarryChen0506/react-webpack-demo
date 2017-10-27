@@ -2,6 +2,7 @@
 
 const path = require('path');
 const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     //入口
@@ -12,7 +13,8 @@ module.exports = {
     output: {
         path: path.join(__dirname, './dist'),
         // 输出到dist文件夹
-        filename: 'bundle.js'
+        filename: '[name].[hash].js',
+        chunkFilename: '[name].[chunkhash].js'
     },
     devtool: 'inline-source-map',
     devServer:{   //webpack-dev-server配置
@@ -29,13 +31,33 @@ module.exports = {
         hot: true
     },
     module: {
-        rules: [{
-            test: /\.js$/,
-            use: ['babel-loader'],  //cacheDirectory缓存编译结果加速
-            include: path.join(__dirname, './src')
-        }]
+        rules: [
+            {
+                test: /\.js$/,
+                use: ['babel-loader'],  //cacheDirectory缓存编译结果加速
+                include: path.join(__dirname, './src')
+            },{
+                test: /\.css$/,
+                loader: 'style-loader!css-loader!postcss-loader'
+            },{
+                test: /\.scss$/,
+                loader: 'style-loader!css-loader!postcss-loader!sass-loader'
+            },{
+                test: /\.(jpg|gif|png)$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8192
+                    }
+                }
+            }
+        ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: path.join(__dirname, 'src/index.tpl.html')
+        })
     ]
 }
