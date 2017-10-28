@@ -33,8 +33,8 @@ module.exports = {
         historyApiFallback: true,  //所有404页面能跳转到index.html
         proxy: {
             '/someapi': {
-                target: 'https://www.baidu.com',
-                pathRewrite: {'^/api' : ''},  //重写HTTP请求，其主要作用就是移除URL前面的/api部分               
+                target: 'http://localhost:8088',
+                pathRewrite: {'/someapi' : '/api'},  //重写HTTP请求，其主要作用就是移除URL前面的/api部分               
             }
         },
         hot: true

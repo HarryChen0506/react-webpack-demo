@@ -9,13 +9,13 @@ class User extends Component {
         super(props);
     }
     componentDidMount(){
-        // console.log('组件挂载了');
-        // fetch('/api/user.json').then((response)=>{
-        //     // console.log('response',response)
-        //     return response.json()
-        // }).then((json)=>{
-        //     console.log('json',json)
-        // })
+        console.log('组件挂载了');
+        fetch('/someapi/user.json').then((response)=>{
+            // console.log('response',response)
+            return response.json()
+        }).then((json)=>{
+            console.log('json',json)
+        })
     }
     render(){
         const {isLoading, userInfo, errorMsg} = this.props.userInfo;
