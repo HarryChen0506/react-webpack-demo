@@ -72,7 +72,7 @@ module.exports = {
             filename: 'index.html',
             template: path.join(__dirname, 'src/index.tpl.html')
         }),
-         new CleanWebpackPlugin(['dist'],{
+         new CleanWebpackPlugin(['dist/*.*'],{
             root: path.join(__dirname,"./"),
             verbose: true,
             dry: false

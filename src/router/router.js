@@ -1,7 +1,7 @@
 //路由入口
 import React from 'react';
 // BromserRouter作为Router的名字引入 （as） 
-import {BrowserRouter as Router, HashRouter, Route, Switch, Link, hashHistory, browserHistory} from 'react-router-dom';
+import {BrowserRouter , HashRouter as Router, Route, Switch, Link, hashHistory, browserHistory} from 'react-router-dom';
 // import {Router, Route ,Link, hashHistory, browserHistory} from 'react-router';
 
 import Home from '../page/Home';
@@ -9,9 +9,11 @@ import Page1 from '../page/Page1';
 import Counter from '../page/Counter';
 import User from '../page/User';
 
+
 // console.log('page1',Page1)
 
 // console.log('browserHistory',browserHistory)
+
 
 const getRouter = ()=> 
    (
