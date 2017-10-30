@@ -16,6 +16,9 @@ class User extends Component {
         }).then((json)=>{
             console.log('json',json)
         })
+
+        console.log('process.env',process.env);
+
     }
     render(){
         const {isLoading, userInfo, errorMsg} = this.props.userInfo;
